@@ -1,7 +1,0 @@
----
-- name: GET ANSIBLE_ENV
-  hosts: all
-  
-  tasks:
-    - debug:
-        var: ansible_env
