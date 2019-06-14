@@ -1,0 +1,8 @@
+---
+- name: PING CISCO SWITCHES
+  hosts: all
+  gather_facts: no
+  
+  tasks:
+  - name: call ping module
+    ping:
