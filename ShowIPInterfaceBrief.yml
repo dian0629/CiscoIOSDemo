@@ -1,6 +1,6 @@
 ---
 - name: GENERATE A REPORT
-  hosts: cisco
+  hosts: all
   gather_facts: no
   connection: network_cli
 
