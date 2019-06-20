@@ -16,8 +16,3 @@
     
   - name: DISPLAY THE OUTPUT
     debug: var=output.stdout
-
-  - name: PARSE THE RAW OUTPUT
-    command_parser:
-      file: "parsers/ios/show_ip_interface_brief.yaml"
-      content: "{{ output.stdout[0] }}"
