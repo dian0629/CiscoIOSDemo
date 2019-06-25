@@ -1,15 +1,15 @@
 ---
-- hosts: all
+- name: UPDATE NTP SERVERS
+  hosts: all
   gather_facts: no
 
   tasks:
-  
   - name: get the current ntp server configs
     ios_command:
       commands:
         - "show running-config full | include ntp server"
     register: get_config
-
+    
   - debug: var=get_config.stdout_lines
 
   - name: set ntp server commands
@@ -26,3 +26,9 @@
     ios_config:
       lines:
         - "no {{ item }}"
+        
+  - name: verify ntp server configs
+    ios_command:
+      commands:
+        - "show running-config full | include ntp server"
+    register: get_config      
