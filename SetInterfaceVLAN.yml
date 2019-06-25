@@ -2,7 +2,7 @@
 - hosts: all
   gather_facts: no
 
-# {{vlan}} & {{ interface }} input  will be a survey in Ansible Tower
+# {{vlan}} & {{ interface }} input  will be passed through template extra variables
 
   tasks:
      - name: Create VLAN
@@ -23,4 +23,5 @@
            - show run int {{ interface }}          
        register: int
 
-     - debug: var=int.stdout_lines  
+     - debug: 
+         var: int.stdout_lines  
