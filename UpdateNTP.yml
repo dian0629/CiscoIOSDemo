@@ -32,3 +32,5 @@
       commands:
         - "show running-config full | include ntp server"
     register: get_config      
+
+  - debug: var=get_config.stdout_lines
