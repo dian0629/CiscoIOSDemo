@@ -1,0 +1,15 @@
+---
+- name: OUTPUT CLOCK
+  hosts: all
+  connection: local
+  gather_facts: no
+  
+  tasks:
+  - name: show clock
+    ios_command:
+      commands:
+        - show clock
+    register: clock
+
+  - debug: 
+      msg: "{{ clock.stdout }}"
