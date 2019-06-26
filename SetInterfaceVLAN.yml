@@ -5,19 +5,19 @@
 # {{vlan}} & {{ interface }} input  will be passed through template extra variables
 
   tasks:
-     - name: Create VLAN
+     - name: "Create VLAN {{ vlan }}"
        ios_vlan:
          vlan_id: "{{ vlan }}"
          name: test-vlan
          state: present
 
-     - name: Add interfaces to VLAN
+     - name: "Configure interface {{ interface }}"
        ios_vlan:
          vlan_id: "{{ vlan }}"
          interfaces:
            - "{{ interface }}"
            
-     - name: Verify VLAN
+     - name: "Verify {{ interface }}"
        ios_command:
          commands: 
            - show run int {{ interface }}          
