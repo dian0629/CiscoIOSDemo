@@ -1,0 +1,17 @@
+---
+- name: DISPLAY FACTS
+  hosts: all
+  gather_facts: no
+  
+  tasks:
+    - name: gather facts using ios module
+      ios_facts:
+      
+    - name: display hostname
+      debug:
+        msg: "The device is named: {{ ansible_net_hostname }}"
+        
+    - name: display model and serial number
+      debug:
+        msg: "Model: {{ ansible_net_model }}"
+        msg: "Serial #: {{ ansible_net_serialnum }}"
