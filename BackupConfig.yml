@@ -23,5 +23,5 @@
   - name: remove current configuration line
     lineinfile:
       path: "{{ backup.backup_path }}"
-      line: "Current configuration*"
+      line: 'Current configuration :*'
       state: absent
