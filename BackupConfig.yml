@@ -10,6 +10,6 @@
       backup: yes
     register: backup
     
-  - name: show config
+  - name: show backup path
     debug:
       var: backup
