@@ -12,13 +12,13 @@
     
   - name: remove building configuration line
     lineinfile:
-      path: "./backup/{{ inventory_hostname }}.config"
+      path: "./backup/{{ inventory_hostname }}.config*"
       line: "Building configuration..."
       state: absent
    
   - name: remove current configuration line
     lineinfile:
-      path: "./backup/{{ inventory_hostname }}.config"
+      path: "./backup/{{ inventory_hostname }}.config*"
       line: 'Current configuration.*'
       state: absent
     
