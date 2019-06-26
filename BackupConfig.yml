@@ -5,12 +5,12 @@
   connection: local
   
   tasks:
-  - name: backup the configuration
+  - name: backup the configuration to tower
     ios_config:
       backup: yes
     register: backup
     
-  - name: show backup_path
+  - name: show backup location and file name
     debug:
       var: backup.backup_path
     
