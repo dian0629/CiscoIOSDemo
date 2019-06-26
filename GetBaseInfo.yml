@@ -1,8 +1,7 @@
 ---
 - name: GET CISCO BASE INFORMATION
   hosts: all
-  connection: local
-  gather_facts: false
+  gather_facts: no
 
   tasks:
     - name: gather information
