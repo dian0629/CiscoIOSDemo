@@ -11,7 +11,10 @@
       debug:
         msg: "The device is named: {{ ansible_net_hostname }}"
         
-    - name: display model and serial number
+    - name: display model
       debug:
         msg: "Model: {{ ansible_net_model }}"
+        
+    - name: display serial number
+      debug:
         msg: "Serial #: {{ ansible_net_serialnum }}"
