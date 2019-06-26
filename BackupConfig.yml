@@ -10,18 +10,18 @@
       backup: yes
     register: backup
     
+  - name: show backup_path
+    debug:
+      var: backup.backup_path
+    
   - name: remove building configuration line
     lineinfile:
-      path: backup.backuppath
+      path: backup.backup_path
       line: "Building configuration..."
       state: absent
    
   - name: remove current configuration line
     lineinfile:
-      path: "./backup/{{ inventory_hostname }}.config*"
+      path: backup.backup_path
       line: 'Current configuration.*'
       state: absent
-    
-  - name: show backup path
-    debug:
-      var: backup
