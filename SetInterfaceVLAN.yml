@@ -15,8 +15,7 @@
      - name: "Configure interface {{ interface }}"
        ios_vlan:
          vlan_id: "{{ vlan }}"
-         interfaces:
-           - "{{ interface }}"
+         interfaces: "{{ interface }}"
            
      - name: "Verify {{ interface }}"
        ios_command:
