@@ -5,6 +5,21 @@
   connection: local
   
   tasks:
+  - name: create timestamp
+    local_action: command date +%Y%m%d
+    register: timestamp
+  
+  - name: create backup directory on tower
+    file:
+      path: /etc/ansible/backups/{{ timestamp.stdout }}
+      state: directory
+      mode: 0755
+    register: backup_dir
+    
+  - name: show backup directory
+    debug:
+      var: backup_dir
+  
   - name: backup the configuration to tower
     ios_config:
       backup: yes
@@ -13,6 +28,11 @@
   - name: show backup location and file name
     debug:
       var: backup.backup_path
+      
+  - name: copy backup to backup directory and rename
+    copy:
+      src: "{{ backup.backup_path }}"
+      dest: "{{ backup_dir }}"
     
   - name: remove building configuration line
     lineinfile:
