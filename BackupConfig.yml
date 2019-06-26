@@ -1,5 +1,5 @@
 ---
-- name: BACKUP CONFIGURATION
+- name: BACKUP IOS CONFIGURATION
   hosts: all
   gather_facts: no
   connection: local
