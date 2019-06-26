@@ -16,12 +16,12 @@
     
   - name: remove building configuration line
     lineinfile:
-      path: backup.backup_path
+      path: "{{ backup.backup_path }}"
       line: "Building configuration..."
       state: absent
    
   - name: remove current configuration line
     lineinfile:
-      path: backup.backup_path
+      path: "{{ backup.backup_path }}"
       line: 'Current configuration.*'
       state: absent
