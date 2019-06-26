@@ -1,0 +1,15 @@
+---
+- name: SHOW RUNNING CONFIG
+  hosts: all
+  gather_facts: no
+  
+  tasks:
+    - name: run command
+      ios_command:
+        commands:
+          - show running-config
+      register: config
+      
+    - name: show output
+      debug:
+        var: config
