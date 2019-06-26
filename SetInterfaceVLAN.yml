@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: CREATE VLAN AND ADD INTERFACE
+  hosts: all
   gather_facts: no
 
 # {{vlan}} & {{ interface }} input  will be passed through template extra variables
