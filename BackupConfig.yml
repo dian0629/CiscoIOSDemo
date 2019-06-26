@@ -12,7 +12,7 @@
     
   - name: remove building configuration line
     lineinfile:
-      path: "./backup/{{ inventory_hostname }}.config*"
+      path: backup.backuppath
       line: "Building configuration..."
       state: absent
    
