@@ -5,7 +5,7 @@
   connection: local
   
   tasks:
-  - name: backup the configuration to var backup
+  - name: backup the configuration
     ios_config:
       backup: yes
     register: backup
