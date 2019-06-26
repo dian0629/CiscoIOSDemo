@@ -1,0 +1,17 @@
+---
+- name: GET CISCO BASE INFORMATION
+  hosts: all
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: gather information
+      ios_command:
+        commands:
+          - show version | include IOS
+          - show ip interface brief
+      register: output
+
+    - name: display information
+      debug:
+        var: output.stdout_lines
