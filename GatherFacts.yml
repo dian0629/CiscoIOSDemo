@@ -1,0 +1,14 @@
+---
+- name: GATHER INFORMATION FROM CISCO IOS SWITCH
+  hosts: all
+  gather_facts: no
+  connection: local
+  
+  tasks:
+  - name: gather facts
+    ios_facts:
+    register: facts
+    
+  - name: show facts
+    debug:
+      var: facts
