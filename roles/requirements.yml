@@ -1,2 +1,3 @@
 # Install from Galaxy
 - src: ansible-network.network-engine
+- src: ansible-network.cisco_ios
