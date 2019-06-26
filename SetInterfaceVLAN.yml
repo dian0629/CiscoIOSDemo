@@ -3,7 +3,7 @@
   hosts: all
   gather_facts: no
 
-# {{vlan}} & {{ interface }} input  will be passed through template extra variables
+# {{ vlan }} & {{ interface }} input  will be passed through template extra variables
 
   tasks:
      - name: "Create VLAN {{ vlan }}"
