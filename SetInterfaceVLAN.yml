@@ -28,5 +28,6 @@
          
      - name: Copy running config to startup config
        ios_command:
+         authorize: yes
          commands:
            - copy run start
