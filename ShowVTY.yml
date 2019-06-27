@@ -1,0 +1,15 @@
+---
+- name: SHOW VTY CONFIG
+  hosts: all
+  gather_facts: no
+  
+  tasks:
+    - name:  gather config
+      ios_command:
+        commands:
+          - show run | beg line vty
+      register: vty
+    
+    - name:  show vty 
+      debug:
+        var: vty.stdout_lines
