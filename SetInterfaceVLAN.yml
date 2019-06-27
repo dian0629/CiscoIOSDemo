@@ -26,8 +26,7 @@
      - debug: 
          var: int.stdout_lines
          
-     - name: Copy running config to startup config
+     - name: Save configuration
        ios_command:
-         authorize: yes
          commands:
-           - copy run start
+           - write memory
