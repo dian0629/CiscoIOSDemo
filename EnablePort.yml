@@ -9,12 +9,3 @@
         lines:
           - no shutdown
         parents: interface {{ ios_interface }}
-        
-    - name: verify interface
-      ios_command:
-        commands:
-          - show run int {{ ios_interface }}
-      register: int
-      
-    - debug:
-        var: int.stdout_lines
