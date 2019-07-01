@@ -13,7 +13,7 @@
     - name: "get interface {{ ios_interface }}"
       ios_commands:
         commands:
-          - show run int {{ ios_interface }}
+          - show run int "{{ ios_interface }}"
       register: int
       
     - name: "show interface {{ ios_interface }}"
