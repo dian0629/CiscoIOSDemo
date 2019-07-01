@@ -1,6 +1,6 @@
 ---
 - name: ENABLE SWITCH PORT
-  hosts: {{ ios_host }}
+  hosts: "{{ ios_host }}"
   gather_facts: no
   
   tasks:
