@@ -16,5 +16,5 @@
           - show run int {{ ios_interface }}
       register: int
       
-      debug:
+    - debug:
         var: int.stdout_lines
