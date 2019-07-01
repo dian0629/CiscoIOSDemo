@@ -4,8 +4,18 @@
   gather_facts: no
   
   tasks:
-    - name: apply no shutdown command to {{ ios_interface }} on {{ ios_host }}
+    - name: apply 'no shutdown' command to {{ ios_interface }} on {{ ios_host }}
       ios_config:
         lines:
           - no shutdown
         parents: interface {{ ios_interface }}
+        
+    - name: get interface {{ ios_interface }}
+      ios_commands:
+        commands:
+          - show run int {{ ios_interface }}
+      register: int
+      
+    - name: show interface {{ ios_interface }}
+      debug:
+        var: int_stdout_lines
