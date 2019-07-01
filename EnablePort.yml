@@ -6,4 +6,4 @@
     - ios_config:
         lines:
           - no shutdown
-        parents: interface GigabitEthernet1/0/11
+        parents: interface {{ ios_interface }}
