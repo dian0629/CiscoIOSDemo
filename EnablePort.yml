@@ -9,3 +9,8 @@
         lines:
           - no shutdown
         parents: interface {{ ios_interface }}
+        
+    - name: save configuration
+      ios_command:
+        commands:
+          - write memory
