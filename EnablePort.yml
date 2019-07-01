@@ -1,9 +1,11 @@
 ---
-- hosts: all
+- name: ENABLE SWITCH PORT
+  hosts: {{ ios_host }}
   gather_facts: no
   
   tasks:
-    - ios_config:
+    - name: apply no shutdown command to {{ ios_interface }} on {{ ios_host }}
+      ios_config:
         lines:
           - no shutdown
         parents: interface {{ ios_interface }}
