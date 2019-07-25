@@ -1,0 +1,21 @@
+---
+- name:  SWITCH PORT
+  hosts: "{{ ios_host }}"
+  gather_facts: no
+  
+  tasks:
+    - name: "apply 'shutdown' command to {{ ios_interface }} on {{ ios_host }}"
+      ios_config:
+        lines:
+          - shutdown
+        parents: interface {{ ios_interface }}
+      register: status
+        
+    - name: save configuration
+      ios_command:
+        commands:
+          - write memory
+    
+    - name: display status
+      debug:
+        var: status
