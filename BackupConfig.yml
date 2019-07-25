@@ -12,15 +12,3 @@
   - name: show backup location and file name
     debug:
       var: backup.backup_path
-    
-  - name: remove building configuration line
-    lineinfile:
-      path: "{{ backup.backup_path }}"
-      line: "Building configuration..."
-      state: absent
-   
-  - name: remove current configuration line
-    lineinfile:
-      path: "{{ backup.backup_path }}"
-      regexp: 'Current configuration.*'
-      state: absent
